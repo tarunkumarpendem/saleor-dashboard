@@ -12,7 +12,8 @@ pipeline{
         stage('docker_image_build'){
             steps{
                 sh 'docker image build -t saleor:dev .'
-                //sh 'docker image push tarunkumarpendem/saleor:dev'
+                sh 'docker image tag saleor:dev tarunkumarpendem/saleor:dev'
+                sh 'docker image push tarunkumarpendem/saleor:dev'
             }
         }
     } 
