@@ -13,7 +13,7 @@ pipeline{
             steps{
                 sh """
                       docker image build -t saleor-dashboard:dev .
-                      docker image tag saleor-platform:dev tarunkumarpendem/saleor-dashboard:dev
+                      docker image tag saleor-dashboard:dev tarunkumarpendem/saleor-dashboard:dev
                       docker image push tarunkumarpendem/saleor-dashboard:dev
                     """  
             }
