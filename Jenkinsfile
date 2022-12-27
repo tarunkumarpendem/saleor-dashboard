@@ -1,19 +1,21 @@
 pipeline{
     agent{
-        label 'saler-node'
+        label 'node-1'
     }
     stages{
         stage('clone'){
             steps{
                 git url: 'https://github.com/tarunkumarpendem/saleor-dashboard.git',
-                    branch: 'main'
+                    branch: 'dev'
             }
         }
         stage('docker_image_build'){
             steps{
-                sh 'docker image build -t saleor:dev .'
-                sh 'docker image tag saleor:dev tarunkumarpendem/saleor:dev'
-                sh 'docker image push tarunkumarpendem/saleor:dev'
+                sh """
+                      docker image build -t saleor-dashboard:dev .
+                      docker image tag saleor-platform:dev tarunkumarpendem/saleor-dashboard:dev
+                      docker image push tarunkumarpendem/saleor-dashboard:dev
+                    """  
             }
         }
     } 
