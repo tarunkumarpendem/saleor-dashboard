@@ -33,7 +33,7 @@ ENV STATIC_URL ${STATIC_URL:-/dashboard/}
 ENV SKIP_SOURCEMAPS ${SKIP_SOURCEMAPS:-true}
 RUN npm run build
 
-FROM nginx:stable-alpine as runner
+FROM nginx:1.29.5-alpine3.23 as runner
 WORKDIR /app
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
